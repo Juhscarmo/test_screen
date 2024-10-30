@@ -1,100 +1,35 @@
 import 'package:flutter/material.dart';
 
 class ProfileActions extends StatelessWidget {
-  const ProfileActions({super.key});
+  final String title;
+  final IconData icon;
+  final Color color;
+  const ProfileActions(
+      {super.key,
+      required this.title,
+      required this.icon,
+      required this.color});
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
-      height: 120,
-      child: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20), //espaçamento
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    IconButton(
-                      onPressed: null,
-                      icon: Icon(
-                        Icons.person_add,
-                        color: Colors.white,
-                        size: 40,
-                      ),
-                    ),
-                    Text(
-                      'Friends',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    IconButton(
-                      onPressed: null,
-                      icon: Icon(
-                        Icons.people,
-                        color: Colors.white,
-                        size: 40,
-                      ),
-                    ),
-                    Text(
-                      'Groups',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    IconButton(
-                      onPressed: null,
-                      icon: Icon(
-                        Icons.videocam,
-                        color: Colors.white,
-                        size: 40,
-                      ),
-                    ),
-                    Text(
-                      'Videos',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  children: [
-                    IconButton(
-                      onPressed: null,
-                      icon: Icon(
-                        Icons.favorite,
-                        color: Colors.white,
-                        size: 40,
-                      ),
-                    ),
-                    Text(
-                      'Likes',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+    return Column(
+      children: [
+        IconButton(
+          onPressed: null,
+          icon: Icon(
+            icon,
+            color: color,
+            size: 40,
           ),
-        ],
-      ),
+        ),
+        Text(
+          title,
+          style: TextStyle(
+            color: color,
+            fontSize: 15,
+          ),
+        ),
+      ],
     );
   }
 }
