@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:test_screen/components/profile_actions.dart';
-import 'package:test_screen/components/profile_manage.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -8,7 +7,13 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color(0xFF2E8B57),
+      decoration: const BoxDecoration(
+        color: Color(0xFF2B886B),
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(15),
+          bottomRight: Radius.circular(15),
+        ),
+      ),
       child: Column(
         children: [
           Padding(
@@ -42,11 +47,12 @@ class Profile extends StatelessWidget {
                         cacheWidth: 120,
                       ),
                     ),
+                    const SizedBox(height: 10),
                     const Text(
                       'ID: 142563225',
                       style: TextStyle(
-                          color: Color.fromARGB(
-                              128, 255, 255, 255)), //cor branca opaca
+                        color: Color.fromARGB(128, 255, 255, 255),
+                      ), //cor branca opaca
                     ),
                   ],
                 ),
@@ -69,25 +75,44 @@ class Profile extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 30),
+          const SizedBox(height: 20),
+          //removida a row para posicionamento
+          const Text(
+            'Javier González Rodríguez',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 20),
+          //componentes menores são normalmente mais utilizados
           const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text(
-                'Javier González Rodríguez',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                ),
+              ProfileActions(
+                icon: Icons.person_add,
+                title: 'Friends',
+                color: Colors.white,
               ),
-              SizedBox(width: 10)
+              ProfileActions(
+                icon: Icons.people,
+                title: 'Groups',
+                color: Colors.white,
+              ),
+              ProfileActions(
+                icon: Icons.videocam,
+                title: 'Videos',
+                color: Colors.white,
+              ),
+              ProfileActions(
+                icon: Icons.favorite,
+                title: 'Likes',
+                color: Colors.white,
+              ),
             ],
           ),
-          const SizedBox(height: 30),
-          const ProfileActions(),
-          const SizedBox(height: 10),
-          const ProfileManage(),
+          const SizedBox(height: 50),
         ],
       ),
     );
